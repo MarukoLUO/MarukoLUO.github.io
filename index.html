@@ -1,867 +1,800 @@
-MARUKO — GitHub Website Code
-This document contains the complete index.html code. Copy everything from the code below and paste it into GitHub's index.html editor.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MARUKO — Founder & Chief Commercial Officer">
-  <title>MARUKO — Founder & Chief Commercial Officer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MARUKO — Founder & Chief Commercial Officer. Building brands, products and experiences across cultures, nature, craftsmanship and everyday life.">
+<title>MARUKO — Founder & Chief Commercial Officer</title>
 
-  <style>
-    /* =========================================================
-       MARUKO PERSONAL WEBSITE
-       Everything is contained in this file for easy editing.
-       Later, you can add images inside an /images folder and
-       replace the IMAGE SLOT blocks with <img> elements.
-       ========================================================= */
+<style>
+:root {
+    --paper: #f4f1eb;
+    --paper-light: #faf8f4;
+    --ink: #171717;
+    --muted: #77736c;
+    --line: rgba(23, 23, 23, 0.14);
+    --warm: #e8dfd2;
+    --dark: #151515;
+    --white: #ffffff;
+}
 
-    :root {
-      --bg: #f5f3ee;
-      --text: #171717;
-      --muted: #6f6d68;
-      --line: #d8d4cc;
-      --accent: #8b806d;
-      --white: #ffffff;
-      --max-width: 1180px;
-    }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+html { scroll-behavior: smooth; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+img { width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 42px;
+    background: rgba(244, 241, 235, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+}
 
-    .container {
-      width: min(100% - 48px, var(--max-width));
-      margin: 0 auto;
-    }
+.nav-brand {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    letter-spacing: 0.12em;
+}
 
-    /* -------------------------
-       Navigation
-       ------------------------- */
+.nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 11px;
+    letter-spacing: 0.13em;
+}
 
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(245, 243, 238, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(216, 212, 204, 0.7);
-    }
+.nav-links a { opacity: 0.62; transition: opacity 0.25s ease; }
+.nav-links a:hover { opacity: 1; }
 
-    .nav-inner {
-      width: min(100% - 48px, var(--max-width));
-      height: 72px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
+section {
+    padding: 130px 7vw;
+    border-bottom: 1px solid var(--line);
+}
 
-    .logo {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-    }
+.section-number {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 32px;
+}
+
+.section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    color: var(--muted);
+}
+
+h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: clamp(38px, 5vw, 70px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+.lead {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(22px, 2.5vw, 34px);
+    line-height: 1.3;
+}
+
+.text {
+    max-width: 720px;
+    font-size: 15px;
+    color: #35332f;
+}
+
+.text p + p { margin-top: 22px; }
+strong { font-weight: 600; }
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 170px;
+}
+
+.hero-inner { max-width: 1100px; }
+
+.hero h1 {
+    font-size: clamp(70px, 13vw, 170px);
+    line-height: 0.85;
+    letter-spacing: -0.055em;
+    margin-bottom: 34px;
+}
+
+.hero-title {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+}
+
+.hero-statement {
+    max-width: 900px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 4vw, 54px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+}
+
+.story { background: var(--paper-light); }
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 10vw;
+    align-items: start;
+}
+
+.story-title { max-width: 560px; }
+.story-copy { padding-top: 10px; }
+.story-copy .lead { margin-bottom: 38px; }
+
+.cultures-intro {
+    max-width: 900px;
+    margin-bottom: 70px;
+}
+
+.countries {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    margin-top: 28px;
+    color: var(--muted);
+}
+
+.gallery-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.gallery-3 figure,
+.gallery-2 figure,
+.family-gallery figure {
+    overflow: hidden;
+    background: #ddd;
+}
+
+.gallery-3 img,
+.gallery-2 img,
+.family-gallery img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.gallery-3 figure:hover img,
+.gallery-2 figure:hover img,
+.family-gallery figure:hover img {
+    transform: scale(1.025);
+}
+
+.field { background: #ebe7df; }
+
+.field-intro {
+    max-width: 850px;
+    margin-bottom: 65px;
+}
+
+.field-intro .lead { margin-bottom: 32px; }
+
+.field-lines {
+    margin: 34px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 1.65;
+}
+
+.gallery-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.color-craft { background: var(--paper-light); }
+
+.color-intro {
+    max-width: 920px;
+    margin-bottom: 70px;
+}
+
+.color-intro .lead { margin-bottom: 32px; }
+
+.family { background: #e8e1d7; }
+
+.family-intro {
+    max-width: 850px;
+    margin-bottom: 70px;
+}
+
+.family-intro .lead { margin-bottom: 34px; }
+
+.family-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.family-note {
+    margin-top: 55px;
+    max-width: 760px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.m-brand {
+    background: var(--dark);
+    color: var(--white);
+}
+
+.m-brand .section-number,
+.m-brand .section-label {
+    color: rgba(255,255,255,0.52);
+}
+
+.m-intro {
+    max-width: 900px;
+    margin-bottom: 75px;
+}
+
+.m-intro h2 { margin-bottom: 34px; }
+
+.m-intro .lead {
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 30px;
+}
+
+.m-copy {
+    max-width: 700px;
+    color: rgba(255,255,255,0.68);
+    font-size: 15px;
+}
+
+.m-gallery {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.m-image { overflow: hidden; }
+
+.m-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    object-fit: cover;
+}
+
+.m-logo {
+    background: #f5f3ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+}
+
+.m-logo img {
+    width: 55%;
+    max-width: 260px;
+    height: auto;
+    object-fit: contain;
+}
+
+.contact {
+    min-height: 75vh;
+    background: var(--warm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-content { max-width: 850px; }
+.contact-content h2 { margin-bottom: 35px; }
+.contact-content .lead { margin-bottom: 32px; }
+
+.contact-links {
+    margin-top: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.contact-links a {
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 4px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    color: var(--muted);
+}
+
+@media (max-width: 800px) {
+    .nav { padding: 17px 20px; }
 
     .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
+        gap: 12px;
+        font-size: 9px;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    /* -------------------------
-       General sections
-       ------------------------- */
-
-    section {
-      min-height: 100vh;
-      padding: 150px 0 110px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-    }
-
-    .section-number {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 24px;
-      text-transform: uppercase;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 26px;
-    }
-
-    h1, h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-      line-height: 1.05;
-    }
-
-    h1 {
-      font-size: clamp(64px, 12vw, 150px);
-      letter-spacing: -0.055em;
-    }
-
-    h2 {
-      font-size: clamp(44px, 7vw, 86px);
-      letter-spacing: -0.045em;
-      max-width: 950px;
-    }
-
-    .lead {
-      font-size: clamp(21px, 2.2vw, 30px);
-      line-height: 1.35;
-      max-width: 850px;
-      margin-top: 38px;
-    }
-
-    .body-copy {
-      font-size: 17px;
-      line-height: 1.85;
-      max-width: 760px;
-      color: #383632;
-    }
-
-    .body-copy strong,
-    .lead strong {
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .statement {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(25px, 3vw, 40px);
-      line-height: 1.25;
-      max-width: 900px;
-      margin-top: 42px;
-    }
-
-    .meta {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 32px;
-    }
-
-    /* -------------------------
-       Image slots
-       ------------------------- */
-
-    .image-slot {
-      width: 100%;
-      min-height: 420px;
-      margin-top: 70px;
-      border: 1px dashed #bcb7ae;
-      background: #ebe8e1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #8a867e;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .image-slot.small {
-      min-height: 300px;
-    }
-
-    /*
-      Later replace an image slot with:
-
-      <img class="full-image" src="images/your-photo.jpg" alt="Description">
-
-      Put your photos in:
-      images/your-photo.jpg
-    */
-
-    .full-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 760px;
-      object-fit: cover;
-      margin-top: 70px;
-    }
-
-    /* -------------------------
-       01 — MARUKO
-       ------------------------- */
-
-    #maruko {
-      min-height: 100vh;
-      padding-top: 160px;
-    }
+    section { padding: 95px 22px; }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
+        min-height: 90vh;
+        padding-top: 140px;
     }
 
-    .hero-title {
-      max-width: 1100px;
-    }
+    .hero h1 { font-size: 76px; }
+    .hero-statement { font-size: 29px; }
 
-    .hero-title .role {
-      margin-top: 24px;
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hero-quote {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 4vw, 52px);
-      line-height: 1.18;
-      max-width: 900px;
-      margin-top: 44px;
-    }
-
-    .hero-copy {
-      max-width: 800px;
-      margin-top: 36px;
-    }
-
-    /* -------------------------
-       02 / 03 / 04 / 05
-       ------------------------- */
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 90px;
-      align-items: start;
-    }
-
-    .content-grid .left {
-      position: sticky;
-      top: 120px;
-    }
-
-    .content-grid .right {
-      padding-top: 4px;
-    }
-
-    .small-lines {
-      margin-top: 35px;
-      display: grid;
-      gap: 8px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 24px;
-    }
-
-    .country-line {
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 38px;
-      text-transform: uppercase;
-    }
-
-    /* -------------------------
-       06 — MY COMPANION
-       ------------------------- */
-
-    #companion {
-      background: #e9e5dc;
-    }
-
-    .companion-wrap {
-      max-width: 980px;
-    }
-
-    .companion-copy {
-      max-width: 650px;
-      margin-top: 38px;
-      font-size: 21px;
-      line-height: 1.55;
-    }
-
-    .companion-statement {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(30px, 4vw, 52px);
-      line-height: 1.15;
-      margin-top: 42px;
-    }
-
-    /* -------------------------
-       07 — M
-       ------------------------- */
-
-    #brand {
-      background: #171717;
-      color: #f5f3ee;
-    }
-
-    #brand .eyebrow,
-    #brand .section-number,
-    #brand .body-copy,
-    #brand .meta {
-      color: #b7b3ab;
-    }
-
-    #brand .body-copy strong {
-      color: #f5f3ee;
-    }
-
-    #brand .image-slot {
-      background: #252525;
-      border-color: #4a4a4a;
-      color: #8e8b84;
-    }
-
-    .brand-title {
-      font-size: clamp(65px, 14vw, 180px);
-    }
-
-    .brand-statement {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 4vw, 52px);
-      line-height: 1.18;
-      max-width: 900px;
-      margin-top: 40px;
-    }
-
-    /* -------------------------
-       08 — CONTACT
-       ------------------------- */
-
-    #connect {
-      min-height: 85vh;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 90px;
-      align-items: end;
-    }
-
-    .contact-details {
-      display: grid;
-      gap: 34px;
-      margin-top: 60px;
-    }
-
-    .contact-item {
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
-    }
-
-    .contact-label {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .contact-value {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(22px, 3vw, 34px);
-    }
-
-    .contact-value:hover {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
-
-    /* -------------------------
-       Footer
-       ------------------------- */
-
-    footer {
-      padding: 28px 0;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* -------------------------
-       Mobile
-       ------------------------- */
-
-    @media (max-width: 800px) {
-      .container,
-      .nav-inner {
-        width: min(100% - 32px, var(--max-width));
-      }
-
-      .nav-inner {
-        height: 64px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      section {
-        padding: 115px 0 80px;
-        min-height: auto;
-      }
-
-      #maruko {
-        min-height: 100vh;
-        padding-top: 130px;
-      }
-
-      .content-grid,
-      .contact-grid {
+    .story-grid {
         grid-template-columns: 1fr;
         gap: 45px;
-      }
-
-      .content-grid .left {
-        position: static;
-      }
-
-      .image-slot {
-        min-height: 280px;
-        margin-top: 50px;
-      }
-
-      .full-image {
-        margin-top: 50px;
-      }
-
-      .companion-copy {
-        font-size: 18px;
-      }
-
-      .contact-details {
-        margin-top: 30px;
-      }
     }
-  </style>
+
+    .gallery-3,
+    .family-gallery,
+    .gallery-2 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .gallery-3 img,
+    .gallery-2 img,
+    .family-gallery img {
+        aspect-ratio: 4 / 5;
+    }
+
+    .field-lines { font-size: 20px; }
+    .family-note { font-size: 24px; }
+
+    .m-gallery { grid-template-columns: 1fr; }
+
+    .m-image img { min-height: 430px; }
+
+    .m-logo { min-height: 300px; }
+
+    .m-logo img { width: 45%; }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================================================
-       NAVIGATION
-       ========================================================= -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="logo" href="#maruko">MARUKO</a>
+<nav class="nav">
+    <a href="#maruko" class="nav-brand">MARUKO</a>
 
-      <ul class="nav-links">
-        <li><a href="#story">02</a></li>
-        <li><a href="#cultures">03</a></li>
-        <li><a href="#field-notes">04</a></li>
-        <li><a href="#color-craft">05</a></li>
-        <li><a href="#companion">06</a></li>
-        <li><a href="#brand">07</a></li>
-        <li><a href="#connect">08</a></li>
-      </ul>
+    <div class="nav-links">
+        <a href="#story">02</a>
+        <a href="#cultures">03</a>
+        <a href="#field">04</a>
+        <a href="#color">05</a>
+        <a href="#family">06</a>
+        <a href="#m">07</a>
+        <a href="#contact">08</a>
     </div>
-  </nav>
+</nav>
 
 
-  <!-- =========================================================
-       01 — MARUKO
-       ========================================================= -->
-  <section id="maruko">
-    <div class="container">
-      <div class="hero">
+<section class="hero" id="maruko">
+    <div class="hero-inner">
+        <div class="section-number">01</div>
+
+        <h1>MARUKO</h1>
 
         <div class="hero-title">
-          <div class="section-number">01 — MARUKO</div>
-          <h1>MARUKO</h1>
-          <div class="role">Founder &amp; Chief Commercial Officer</div>
+            Founder &amp; Chief Commercial Officer
         </div>
 
-        <div class="hero-quote">
-          Starting with life. Exploring the world. Collecting inspiration. Creating with purpose.
+        <div class="hero-statement">
+            Starting with life. Exploring the world.
+            Collecting inspiration. Creating with purpose.
         </div>
 
-        <div class="hero-copy body-copy">
-          <p>
-            I live between China and Italy, working across cultures, markets, and creative fields.
-          </p>
-
-          <p style="margin-top: 24px;">
-            I bring together <strong>emotion, business thinking, product development, history, culture, and craftsmanship.</strong>
-          </p>
-
-          <p style="margin-top: 24px;">
-            <strong>I stay curious about the world and the life we share — finding inspiration in people and animals, nature, color, materials, and different cultures, and turning what I discover into brands, products, and creative work rooted in love.</strong>
-          </p>
-        </div>
-
-        <!-- IMAGE SLOT 01
-             Add your portrait later here.
-        -->
-        <div class="image-slot">
-          IMAGE 01 — MARUKO PORTRAIT
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       02 — MY STORY
-       ========================================================= -->
-  <section id="story">
-    <div class="container">
-      <div class="content-grid">
-
-        <div class="left">
-          <div class="section-number">02 — MY STORY</div>
-          <div class="eyebrow">My Story</div>
-          <h2>FROM INVESTING IN INNOVATION TO CREATING IT</h2>
-        </div>
-
-        <div class="right">
-          <div class="body-copy">
+        <div class="text" style="margin-top: 48px; max-width: 820px;">
             <p>
-              <strong>For eleven years, I worked across investment, technology, and innovation, learning to see value from different perspectives.</strong>
+                I live between China and Italy, working across cultures,
+                markets, and creative fields.
             </p>
 
-            <p style="margin-top: 28px;">
-              Today, I’m interested in what happens when an idea leaves the page and becomes part of everyday life — a product, a brand, a material, or an experience.
-            </p>
-
-            <p style="margin-top: 28px;">
-              <strong>I bring commercial thinking and creativity together with craftsmanship and long-term value.</strong>
-            </p>
-          </div>
-
-          <div class="statement">
-            From understanding value to creating it.
-          </div>
-
-          <!-- IMAGE SLOT 02
-               Optional image: work / studio / materials.
-          -->
-          <div class="image-slot small">
-            IMAGE 02 — STORY
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       03 — BETWEEN CULTURES
-       ========================================================= -->
-  <section id="cultures">
-    <div class="container">
-      <div class="content-grid">
-
-        <div class="left">
-          <div class="section-number">03 — BETWEEN CULTURES</div>
-          <div class="eyebrow">Between Cultures</div>
-          <h2>BETWEEN CULTURES</h2>
-        </div>
-
-        <div class="right">
-          <div class="country-line">20+ COUNTRIES · 4 COUNTRIES · ONE SHARED VISION</div>
-
-          <div class="body-copy">
             <p>
-              I’ve traveled through more than 20 countries, discovering different cultures, ideas, and ways of life.
+                I bring together
+                <strong>emotion, business thinking, product development,
+                history, culture, and craftsmanship.</strong>
             </p>
 
-            <p style="margin-top: 28px;">
-              Along the way, friends became partners. Today, we work across four countries to build new brands and bring ideas to life.
-            </p>
-          </div>
-
-          <div class="statement">
-            Different places. Different perspectives. One shared vision.
-          </div>
-
-          <!-- IMAGE SLOT 03
-               Optional world / people / travel image.
-          -->
-          <div class="image-slot small">
-            IMAGE 03 — BETWEEN CULTURES
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       04 — FIELD NOTES
-       ========================================================= -->
-  <section id="field-notes">
-    <div class="container">
-      <div class="content-grid">
-
-        <div class="left">
-          <div class="section-number">04 — FIELD NOTES</div>
-          <div class="eyebrow">Field Notes</div>
-          <h2>SLOW DOWN. LOOK CLOSER.</h2>
-        </div>
-
-        <div class="right">
-          <div class="country-line">OUTDOORS · NATURE · EXPLORATION</div>
-
-          <div class="small-lines">
-            <span>Slow down.</span>
-            <span>Observe the world.</span>
-            <span>Wander outdoors.</span>
-            <span>Breathe in nature.</span>
-          </div>
-
-          <div class="body-copy" style="margin-top: 42px;">
             <p>
-              Mountains, coastlines, forests, open landscapes — every place has its own rhythm, its own perspective, its own way of life.
+                I stay curious about the world and the life we share —
+                finding inspiration in people and animals, nature, color,
+                materials, and different cultures, and turning what I discover
+                into brands, products, and creative work with love at their heart.
             </p>
-          </div>
-
-          <div class="statement">
-            You don’t have to go far. You just have to see.
-          </div>
-
-          <div class="statement" style="font-size: clamp(24px, 3vw, 36px);">
-            Turn encounters into experiences.
-          </div>
-
-          <!-- IMAGE SLOT 04
-               Best place for a large outdoor / landscape photo.
-          -->
-          <div class="image-slot">
-            IMAGE 04 — FIELD NOTES
-          </div>
         </div>
-
-      </div>
     </div>
-  </section>
+</section>
 
 
-  <!-- =========================================================
-       05 — COLOR & CRAFT
-       ========================================================= -->
-  <section id="color-craft">
-    <div class="container">
-      <div class="content-grid">
+<section class="story" id="story">
+    <div class="section-number">02</div>
 
-        <div class="left">
-          <div class="section-number">05 — COLOR &amp; CRAFT</div>
-          <div class="eyebrow">Color &amp; Craft</div>
-          <h2>NATURE LEAVES ITS MARK</h2>
+    <div class="story-grid">
+        <div class="story-title">
+            <div class="section-label">MY STORY</div>
+
+            <h2>
+                FROM INVESTING IN INNOVATION
+                TO CREATING IT
+            </h2>
         </div>
 
-        <div class="right">
-          <div class="country-line">COLOR · MATERIAL · CRAFT</div>
+        <div class="story-copy">
+            <div class="lead">
+                For eleven years, I worked across investment,
+                technology, and innovation, learning to see value
+                from different perspectives.
+            </div>
 
-          <div class="body-copy">
+            <div class="text">
+                <p>
+                    Today, I’m interested in what happens when an idea
+                    leaves the page and becomes part of everyday life —
+                    a product, a brand, a material, or an experience.
+                </p>
+
+                <p>
+                    <strong>
+                        I bring commercial thinking and creativity together
+                        with craftsmanship and long-term value.
+                    </strong>
+                </p>
+
+                <p>
+                    From understanding value to creating it.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="cultures">
+    <div class="section-number">03</div>
+
+    <div class="cultures-intro">
+        <div class="section-label">BETWEEN CULTURES</div>
+
+        <h2>BETWEEN CULTURES</h2>
+
+        <div class="countries">
+            20+ COUNTRIES · 4 COUNTRIES · ONE SHARED VISION
+        </div>
+
+        <div class="text" style="margin-top: 35px;">
             <p>
-              Fruit, trees, flowers, weathered walls — each carries its own colors and character.
+                I’ve traveled through more than 20 countries,
+                discovering different cultures, ideas, and ways of life.
             </p>
 
-            <p style="margin-top: 28px;">
-              Some colors stay with me as memories.
-            </p>
-
-            <p style="margin-top: 28px;">
-              I’m drawn to the beauty of nature in all its variations, and to capturing a trace of it through craft — bringing something from the natural world into the things we live with.
-            </p>
-          </div>
-
-          <div class="statement">
-            From color to material. From material to creation.
-          </div>
-
-          <div class="body-copy" style="margin-top: 42px;">
             <p>
-              Experiences don’t have to remain fleeting moments. They can become part of everyday life — reflected in what we make, what we choose, and how we express ourselves.
+                Along the way, friends became partners.
+                Today, we work together across four countries to build
+                new brands and bring ideas to life.
             </p>
-          </div>
 
-          <!-- IMAGE SLOT 05
-               Best place for close-ups of fruit / flowers / walls / dyed textiles.
-          -->
-          <div class="image-slot">
-            IMAGE 05 — COLOR &amp; CRAFT
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       06 — MY COMPANION
-       ========================================================= -->
-  <section id="companion">
-    <div class="container">
-      <div class="companion-wrap">
-
-        <div class="section-number">06 — MY COMPANION</div>
-        <div class="eyebrow">My Companion</div>
-        <h2>MY COMPANION</h2>
-
-        <div class="meta">TRAVEL · COLOR · CREATION · LOVE</div>
-
-        <div class="companion-copy">
-          My cat travels the world with me.
-        </div>
-
-        <div class="companion-copy">
-          Together, we look for beautiful colors, new ideas, and moments worth remembering.
-        </div>
-
-        <div class="companion-statement">
-          Exploring. Creating. Loving life.
-        </div>
-
-        <!-- IMAGE SLOT 06
-             Best place for a beautiful photo of you and your cat traveling.
-        -->
-        <div class="image-slot">
-          IMAGE 06 — MY COMPANION
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       07 — MY BRAND / M
-       ========================================================= -->
-  <section id="brand">
-    <div class="container">
-
-      <div class="section-number">07 — MY BRAND</div>
-      <div class="eyebrow">My Brand</div>
-
-      <h2 class="brand-title">M</h2>
-
-      <div class="meta">SHARED LIFE · OUTDOORS · CRAFT</div>
-
-      <div class="brand-statement">
-        What if the things we love could be shared?
-      </div>
-
-      <div class="body-copy" style="margin-top: 42px;">
-        <p>
-          <strong>M is designed for people and their animal companions, bringing together function, color, materials, and craftsmanship for everyday life, outdoor adventures, and the moments we experience together.</strong>
-        </p>
-      </div>
-
-      <div class="statement">
-        Made to be shared. Made to be lived.
-      </div>
-
-      <!-- IMAGE SLOT 07
-           Later add your M product / campaign images here.
-      -->
-      <div class="image-slot">
-        IMAGE 07 — M BRAND / PRODUCT
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       08 — LET'S CONNECT
-       ========================================================= -->
-  <section id="connect">
-    <div class="container">
-      <div class="contact-grid">
-
-        <div>
-          <div class="section-number">08 — LET’S CONNECT</div>
-          <div class="eyebrow">Let’s Connect</div>
-          <h2>LET’S CONNECT</h2>
-
-          <div class="country-line" style="margin-top: 35px;">
-            BUSINESS · COLLABORATION · WHOLESALE · PARTNERSHIPS
-          </div>
-
-          <div class="body-copy" style="margin-top: 42px;">
             <p>
-              I’m always open to meeting interesting people, exploring new ideas, and creating something meaningful together.
+                <strong>
+                    Different places. Different perspectives.
+                    One shared vision.
+                </strong>
             </p>
-          </div>
+        </div>
+    </div>
 
-          <div class="statement">
-            Let’s talk.
-          </div>
+    <div class="gallery-3">
+        <figure>
+            <img src="03-1.jpg" alt="Culture and architecture">
+        </figure>
+
+        <figure>
+            <img src="03-2.jpg" alt="Travel and cultural discovery">
+        </figure>
+
+        <figure>
+            <img src="03-3.jpg" alt="European life and culture">
+        </figure>
+    </div>
+</section>
+
+
+<section class="field" id="field">
+    <div class="section-number">04</div>
+
+    <div class="field-intro">
+        <div class="section-label">FIELD NOTES</div>
+
+        <h2>SLOW DOWN. LOOK CLOSER.</h2>
+
+        <div class="countries">
+            OUTDOORS · NATURE · EXPLORATION
         </div>
 
-        <div class="contact-details">
-
-          <div class="contact-item">
-            <div class="contact-label">WhatsApp</div>
-            <a class="contact-value" href="https://wa.me/393242628007" target="_blank" rel="noopener">
-              +39 324 262 8007
-            </a>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-label">Email</div>
-            <a class="contact-value" href="mailto:greenumuttum@gmail.com">
-              greenumuttum@gmail.com
-            </a>
-          </div>
-
+        <div class="field-lines">
+            Slow down.<br>
+            Observe the world.<br>
+            Wander outdoors.<br>
+            Breathe in nature.
         </div>
 
-      </div>
+        <div class="text">
+            <p>
+                Mountains, coastlines, forests, open landscapes —
+                every place has its own rhythm, its own perspective,
+                its own way of life.
+            </p>
+
+            <p>
+                <strong>
+                    You don’t have to go far.
+                    You just have to see.
+                </strong>
+            </p>
+
+            <p>
+                Turn encounters into experiences.
+            </p>
+        </div>
     </div>
-  </section>
+
+    <div class="gallery-2">
+        <figure>
+            <img src="04-1.jpg" alt="Outdoor exploration and nature">
+        </figure>
+
+        <figure>
+            <img src="04-2.jpg" alt="Nature and open landscapes">
+        </figure>
+    </div>
+</section>
 
 
-  <footer>
-    <div class="container">
-      © 2026 MARUKO
+<section class="color-craft" id="color">
+    <div class="section-number">05</div>
+
+    <div class="color-intro">
+        <div class="section-label">COLOR &amp; CRAFT</div>
+
+        <h2>NATURE LEAVES ITS MARK</h2>
+
+        <div class="countries">
+            COLOR · MATERIAL · CRAFT
+        </div>
+
+        <div class="text" style="margin-top: 35px;">
+            <p>
+                Fruit, trees, flowers, weathered walls —
+                each carries its own colors and character.
+            </p>
+
+            <p>
+                Some colors stay with me as memories.
+            </p>
+
+            <p>
+                I’m drawn to the beauty of nature in all its variations,
+                and to capturing a trace of it through craft —
+                bringing something from the natural world into the things
+                we live with.
+            </p>
+
+            <p>
+                <strong>
+                    From color to material.
+                    From material to creation.
+                </strong>
+            </p>
+
+            <p>
+                Experiences don’t have to remain fleeting moments.
+                They can become part of everyday life — reflected in what
+                we make, what we choose, and how we express ourselves.
+            </p>
+        </div>
     </div>
-  </footer>
+
+    <div class="gallery-3">
+        <figure>
+            <img src="05-1.jpg" alt="Natural color and fruit inspiration">
+        </figure>
+
+        <figure>
+            <img src="05-2.jpg" alt="Natural dye and botanical color">
+        </figure>
+
+        <figure>
+            <img src="05-3.jpg" alt="Handmade textile craftsmanship">
+        </figure>
+    </div>
+</section>
+
+
+<section class="family" id="family">
+    <div class="section-number">06</div>
+
+    <div class="family-intro">
+        <div class="section-label">FAMILY</div>
+
+        <h2>FAMILY</h2>
+
+        <div class="countries">HUMAN × ANIMAL</div>
+
+        <div class="lead" style="margin-top: 32px;">
+            There is one part of my life that keeps everything grounded.
+            My hairless cat is my family.
+        </div>
+
+        <div class="text">
+            <p>
+                Living with an animal changes the way you understand
+                home, movement, comfort and everyday life.
+            </p>
+
+            <p>
+                It reminds me that the best products are not designed
+                around categories.
+                They are designed around
+                <strong>relationships.</strong>
+            </p>
+
+            <p>
+                The way we live together.
+                The way we move together.
+                The way we experience the outdoors together.
+            </p>
+        </div>
+    </div>
+
+    <div class="family-gallery">
+        <figure>
+            <img src="06-1.jpg" alt="Life with an animal companion">
+        </figure>
+
+        <figure>
+            <img src="06-2.jpg" alt="Human and animal outdoor life">
+        </figure>
+
+        <figure>
+            <img src="06-3.jpg" alt="Human and animal lifestyle">
+        </figure>
+    </div>
+
+    <div class="family-note">
+        Good products are not only about what we use.
+        They are about how we live together.
+    </div>
+</section>
+
+
+<section class="m-brand" id="m">
+    <div class="section-number">07</div>
+
+    <div class="m-intro">
+        <div class="section-label">M</div>
+
+        <h2>
+            Shared Life.<br>
+            Designed for Both.
+        </h2>
+
+        <div class="lead">
+            M explores a different way of thinking about products
+            for people and their animal family.
+        </div>
+
+        <div class="m-copy">
+            <p>
+                Designed around shared experiences, everyday movement
+                and the outdoors, M brings together function, comfort,
+                materials and craftsmanship.
+            </p>
+
+            <p style="margin-top: 25px;">
+                The goal is simple:
+                <strong style="color:#fff;">
+                    To create things that belong naturally
+                    in the life we share.
+                </strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="m-gallery">
+        <div class="m-image">
+            <img src="07-1.jpg" alt="M shared human and animal outdoor equipment">
+        </div>
+
+        <div class="m-logo">
+            <img src="07-2.jpg" alt="M logo">
+        </div>
+    </div>
+</section>
+
+
+<section class="contact" id="contact">
+    <div class="contact-content">
+        <div class="section-number">08</div>
+
+        <div class="section-label">LET’S CONNECT</div>
+
+        <h2>LET’S CONNECT</h2>
+
+        <div class="lead">
+            For selected collaborations, wholesale opportunities,
+            product development and international partnerships.
+        </div>
+
+        <div class="text">
+            <p>
+                I’m open to thoughtful collaborations across brands,
+                products, craftsmanship and international markets.
+            </p>
+        </div>
+
+        <div class="contact-links">
+            <a href="mailto:greenumuttum@gmail.com">Business</a>
+            <a href="mailto:greenumuttum@gmail.com">Collaboration</a>
+            <a href="mailto:greenumuttum@gmail.com">Wholesale</a>
+            <a href="mailto:greenumuttum@gmail.com">Partnerships</a>
+            <a href="https://wa.me/393242628007" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>MARUKO</span>
+        <span>Founder &amp; Chief Commercial Officer</span>
+        <span>© 2026</span>
+    </div>
+</section>
 
 </body>
 </html>
